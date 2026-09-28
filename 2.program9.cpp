@@ -6,9 +6,6 @@ protected:
 std::string name;
 public:
 explicit Person(std::string personName) : name(std::move(personName)) {}
-void displayName() const {
-std::cout << "Name: " << name << '\n';
-}
 };
 class Student : public Person {
 private:
@@ -16,13 +13,13 @@ int rollNumber;
 public:
 Student(std::string studentName, int roll)
 : Person(std::move(studentName)), rollNumber(roll) {}
-void displayStudent() const {
-displayName();
+void display() const {
+std::cout << "Name: " << name << '\n';
 std::cout << "Roll Number: " << rollNumber << '\n';
 }
 };
 int main() {
-Student student("Amit", 101);
-student.displayStudent();
+Student student("Kiran", 24);
+student.display();
 return 0;
 }
